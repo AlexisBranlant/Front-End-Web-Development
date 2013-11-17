@@ -1,0 +1,72 @@
+//
+// Layouts
+// --------------------------------------------------
+
+//reset template github
+.inner{width:80%;max-width:80%;}
+#main h2{background:none;}
+#main ul li{list-style:none;}
+
+/* Template Efficom */
+body{font-size:@baseFontSize;line-height:24px;color:@grayDark;font-family:@sansFontFamily;}
+#main{position:relative;padding:20px;}
+.page-center{max-width:1200px;margin:0 auto;}
+
+a{color:@blue;}
+a:hover,a.active{color:@blueDark;}
+
+#main i{margin-right:10px;}
+
+//title
+.main-title{font-size:@fontSizeTitle;line-height:1;color:@blueDark;font-family:@serifFontFamily;text-align:center;margin:0 0 50px;}
+
+//main nav
+#main-nav .list li{padding:0 0 10px;}
+#main-nav .list li a:hover i{text-decoration:none;}
+
+#link-main-nav{position:fixed;top:10px;left:20px;z-index:2;}
+#link-main-nav:hover i{text-decoration:none;}
+#main-nav{position:fixed;top:60px;left:0;background:#fff;z-index:2;}
+#main-nav .list{position:absolute;top:0;left:-350px;width:350px;display:block;.transition(all 1s ease-out);}
+#main-nav.open .list{left:20px;.transition(all 1s ease-in);}
+
+
+//overlay
+#overlay{display:none;height:100%;width:100%;background:@black;.opacity(80);position:fixed;top:0;left:0;z-index:1;}
+#overlay.open{display:block;}
+
+
+//section cours
+.section-title{font-size:@fontSizeLarge;line-height:1;color:@blueDark;font-family:@serifFontFamily;margin:20px 0;}
+.icon-step{text-align:center;line-height:30px;font-weight:bold;display:inline-block;width:30px;height:30px;.border-radius(30px);background:@blueDark;color:@white;font-style:italic;}
+
+
+.under-section-title{font-size:@fontSizeLarge;line-height:1;color:@green;font-family:@serifFontFamily;margin:15px 0 20px 0;}
+.icon-step-letter{text-align:center;line-height:20px;font-weight:bold;display:inline-block;width:20px;height:20px;.border-radius(20px);background:@green;color:@white;font-style:italic;}
+
+pre{word-wrap:break-word;white-space:pre-wrap;font-size:110%;line-height:@baseLineHeight;}
+code{display:block;padding:0.5em;background:#3F3F3F;line-height:@baseLineHeight;}
+.js code{color:#DCDCDC;}
+.html code{color:#E3CEAB;}
+.js code .focus, .html code .focus{color:@yellow;line-height:@baseLineHeight;}
+
+.text{margin:0 20px;}
+.param{margin:0 20px;font-size:@fontSizeSmall;}
+.param li{margin:5px 0;display:block;}
+.warning{background:@yellow;padding:10px;color:@red;}
+.warning i{color:@red;vertical-align:middle;}
+.list{margin-top:10px;}
+.title-tab{font-size:@fontSizeLarge;line-height:1;font-family:@serifFontFamily;margin:0 0 20px 0;}
+
+.table-info td,.table-info th{border:1px solid @grayDark;border-collapse:collapse;padding:0 5px;}
+.div1tab > .table-info{margin:10px 0 0 20px;}
+
+
+//home page
+
+.home #main-nav{position:relative;top:30px;left:auto;}
+.home #main-nav .list{position:relative;top:auto;left:auto;width:auto;}
+.home #main-nav .list li a{display:inline-block;margin:0 0 10px 0;}
+.home #link-main-nav{display:none;}
+.home .section-title{font-size:@fontSizeSmall;margin:0 0 0 30px;}
+.home .icon-step{width:20px;height:20px;line-height:20px;.border-radius(20px);}
