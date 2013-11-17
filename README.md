@@ -1,4 +1,4 @@
 JavaScript
 ==========
 
-Developpement FrontEnd / Formation JavaScript
+Developpement Front-End / Formation JavaScript
