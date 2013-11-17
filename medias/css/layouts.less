@@ -4,9 +4,10 @@
 
 //reset template github
 .outer{max-width:100%;}
+.inner{min-width:inherit;}
 #main h2{background:none;}
-#main ul li{list-style:none;}
-#main code{padding:0;min-width:inherit;}
+#main ul li{list-style:none;padding:0;}
+#main code{min-width:inherit;}
 #main pre{background:none;min-width:inherit;.box-shadow(none);}
 #project_title{line-height:1;}
 
@@ -48,12 +49,12 @@ a:hover,a.active{color:@blueDark;}
 .icon-step-letter{text-align:center;line-height:20px;font-weight:bold;display:inline-block;width:20px;height:20px;.border-radius(20px);background:@green;color:@white;font-style:italic;}
 
 pre{word-wrap:break-word;white-space:pre-wrap;font-size:110%;line-height:@baseLineHeight;}
-code{display:block;padding:0.5em;background:#3F3F3F;line-height:@baseLineHeight;}
+code{display:block;background:#3F3F3F;line-height:@baseLineHeight;padding:0 0 15px 0.5em;width:auto;}
 .js code{color:#DCDCDC;}
 .html code{color:#E3CEAB;}
 .js code .focus, .html code .focus{color:@yellow;line-height:@baseLineHeight;}
 
-.text{margin:0 20px;}
+.text{margin:0;}
 .param{margin:0 20px;font-size:@fontSizeSmall;}
 .param li{margin:5px 0;display:block;}
 .warning{background:@yellow;padding:10px;color:@red;}

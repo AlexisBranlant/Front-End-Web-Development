@@ -53,17 +53,17 @@
                         <li>
                             <i class="icon-long-arrow-right"></i>soit de façon <strong>explicite</strong>, en faisant précéder la variable du mot clé var
 <pre class="js">
-    <code>
-    <span class="focus">var chaine = "bonjour";</span>
-    </code>
+<code>
+<span class="focus">var chaine = "bonjour";</span>
+</code>
 </pre>
                         </li>
                         <li>
                             <i class="icon-long-arrow-right"></i>soit de façon <strong>implicite</strong>, en laissant le navigateur déterminer qu'il s'agit d'une déclaration de variable
 <pre class="js">
-    <code>
-    <span class="focus">chaine = "bonjour";</span>
-    </code>
+<code>
+<span class="focus">chaine = "bonjour";</span>
+</code>
 </pre>
                         </li>
                     </ul>
@@ -81,17 +81,17 @@
                         </li>
                     </ul>
 <pre class="js">
-    <code>
-    <span class="focus">var a = 12;
-    var b = 4;
-    </span>
-    function MultipliePar2(b) {
-       <span class="focus">var a = b * 2;</span>
-       return a;
-    }
-    document.write("Le double de ",b," est ",MultipliePar2(b));
-    document.write("La valeur de a est ",a);
-    </code>
+<code>
+<span class="focus">var a = 12;
+var b = 4;
+</span>
+function MultipliePar2(b) {
+   <span class="focus">var a = b * 2;</span>
+   return a;
+}
+document.write("Le double de ",b," est ",MultipliePar2(b));
+document.write("La valeur de a est ",a);
+</code>
 </pre>
                     <div class="info">
                         <p><i class="icon-info"></i></p>
@@ -101,17 +101,17 @@
                         </p>
                     </div>
 <pre class="js">
-    <code>
-    <span class="focus">var a = 12;
-    var b = 4;
-    </span>
-    function MultipliePar2(b) {
-       <span class="focus">a = b * 2;</span>
-       return a;
-    }
-    document.write("Le double de ",b," est ",MultipliePar2(b));
-    document.write("La valeur de a est ",a);
-    </code>
+<code>
+<span class="focus">var a = 12;
+var b = 4;
+</span>
+function MultipliePar2(b) {
+   <span class="focus">a = b * 2;</span>
+   return a;
+}
+document.write("Le double de ",b," est ",MultipliePar2(b));
+document.write("La valeur de a est ",a);
+</code>
 </pre>
                     <div class="info">
                         <p><i class="icon-info"></i></p>
@@ -160,28 +160,28 @@
                         <strong>Il existe 2 méthodes pour déclarer un tableau :</strong>
                     </p>
 <pre class="js">
-    <code>
-    <span class="focus">var MonTableau = ["donnée 1", "donnée 2", "donnée 3", "donnée 4"];
-    var MonTableau = new Array("donnée 1", "donnée 2", "donnée 3", "donnée 4");</span>
-    </code>
+<code>
+<span class="focus">var MonTableau = ["donnée 1", "donnée 2", "donnée 3", "donnée 4"];
+var MonTableau = new Array("donnée 1", "donnée 2", "donnée 3", "donnée 4");</span>
+</code>
 </pre>
                     <p class="text">Pour plus de rigueur, un tableau devrait être déclaré avant que l'on lui affecte des valeurs. </p>
 <pre class="js">
-    <code>
-    <span class="focus">var MonTableau = new Array();</span>
-    </code>
+<code>
+<span class="focus">var MonTableau = new Array();</span>
+</code>
 </pre>
                     <p class="text">
                         Il  est possible d'utiliser des indices personnalisés pour indexer les valeurs du tableau, on parle alors de tableau associatif. Javascript autorise en effet l'utilisation d'une chaîne ou d'un nombre spécifique pour indexer les valeurs du tableau.<br />
                         Voici un exemple de représentation d'un tableau associatif :
                     </p>
 <pre class="js">
-    <code>
-    <span class="focus">MonTableau["Pierre"] = 12;
-    MonTableau["Jean-François"] = 25;
-    MonTableau["Paul"] = 16;
-    MonTableau["André"] = 22;</span>
-    </code>
+<code>
+<span class="focus">MonTableau["Pierre"] = 12;
+MonTableau["Jean-François"] = 25;
+MonTableau["Paul"] = 16;
+MonTableau["André"] = 22;</span>
+</code>
 </pre>
                     <div class="info">
                         <i class="icon-info"></i>
@@ -189,14 +189,14 @@
                     </div>
                     <p>Le langage Javascript propose l'objet Array, comportant de nombreuses méthodes permettant de manipuler les tableaux, c'est-à-dire d'insérer, supprimer, ou extraire des éléments dans le tableau et également de trier les élément du tableau.</p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    MonTableau.push('donnée'); //Cette méthode ajoute un ou plusieurs éléments au tableau.
-    MonTableau.splice(); //Cette méthode ajoute/retire des éléments d'un tableau.
-    MonTableau.sort(); //Cette méthode permet de trier les éléments d'un tableau.
-    MonTableau.join(); //Cette méthode renvoie une chaîne de caractères contenant tous les éléments du tableau.
-    </span>
-    </code>
+<code>
+<span class="focus">
+MonTableau.push('donnée'); //Cette méthode ajoute un ou plusieurs éléments au tableau.
+MonTableau.splice(); //Cette méthode ajoute/retire des éléments d'un tableau.
+MonTableau.sort(); //Cette méthode permet de trier les éléments d'un tableau.
+MonTableau.join(); //Cette méthode renvoie une chaîne de caractères contenant tous les éléments du tableau.
+</span>
+</code>
 </pre>
                 </div>
             </section>
@@ -206,23 +206,23 @@
                     <h3 class="under-section-title"><i class="icon-step-letter">a</i> WHILE</h3>
                     <p class="text">Tant que la condition est satisfaite, on répète les instructions.</p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    while(condition){
-        instructions
-    }
-    </span>
-    </code>
+<code>
+<span class="focus">
+while(condition){
+    instructions
+}
+</span>
+</code>
 </pre>
                     <h3 class="under-section-title"><i class="icon-step-letter">b</i> FOR</h3>
 <pre class="js">
-    <code>
-    <span class="focus">
-    for(initialisation ; condition ; incrementation){
-        instructions
-    }
-    </span>
-    </code>
+<code>
+<span class="focus">
+for(initialisation ; condition ; incrementation){
+    instructions
+}
+</span>
+</code>
 </pre>
                     <div class="info">
                         <i class="icon-info"></i>
@@ -231,13 +231,13 @@
                     <h3 class="under-section-title"><i class="icon-step-letter">c</i> DO WHILE</h3>
                     <p>Le test est effectué après les instructions, ce qui veut dire que ces dernières seront exécutées au moins une fois, quelle que soit la condition.</p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    do{
-        instructions
-    } while(condition);
-    </span>
-    </code>
+<code>
+<span class="focus">
+do{
+    instructions
+} while(condition);
+</span>
+</code>
 </pre>
                     <h3 class="under-section-title"><i class="icon-step-letter">d</i> Le mot clé : break</h3>
 					<p class="text">
@@ -324,13 +324,13 @@
                         La syntaxe de cette expression est la suivante :
                     </p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    if (condition) {
-        série d'instructions
-    }
-    </span>
-    </code>
+<code>
+<span class="focus">
+if (condition) {
+    série d'instructions
+}
+</span>
+</code>
 </pre>
                     <div class="info">
                         <i class="icon-info"></i>
@@ -343,25 +343,25 @@
                         La syntaxe de cette expression est la suivante :
                     </p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    if (condition) {
-        //série d'instructions
-    }
-    else {
-        //autre série d'instructions
-    }
-    </span>
-    </code>
+<code>
+<span class="focus">
+if (condition) {
+    //série d'instructions
+}
+else {
+    //autre série d'instructions
+}
+</span>
+</code>
 </pre>
                     <h3 class="under-section-title"><i class="icon-step-letter">c</i> Les opérateurs ternaires</h3>
                     <p class="text">Il est possible de faire un test avec une structure beaucoup moins lourde grâce à la structure suivante :</p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    (condition) ? série d'instruction si vrai : serie d'instruction si faux;
-    </span>
-    </code>
+<code>
+<span class="focus">
+(condition) ? série d'instruction si vrai : serie d'instruction si faux;
+</span>
+</code>
 </pre>
                     <div class="info">
                         <i class="icon-info"></i>
@@ -382,21 +382,21 @@
                         Sa syntaxe est la suivante :
                     </p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    switch (Variable) {
-        case Valeur1:
-            série d'instructions;
-            break;
-        case Valeur2:
-            série d'instructions;
-            break;
-        default:
-            série d'instructions;
-            break;
-    }
-    </span>
-    </code>
+<code>
+<span class="focus">
+switch (Variable) {
+    case Valeur1:
+        série d'instructions;
+        break;
+    case Valeur2:
+        série d'instructions;
+        break;
+    default:
+        série d'instructions;
+        break;
+}
+</span>
+</code>
 </pre>
                 </div>
             </section>
@@ -406,50 +406,50 @@
                     <p class="text">Les fonctions permettent de regrouper une série d'instructions, permettant de simplifier et de clarifier le code. D'autre part, une fonction peut faire appel à elle-même, on parle alors de fonction récursive.</p>
                     <p class="text">La définition d'une fonction s'appelle "déclaration". La déclaration d'une fonction se fait grâce au mot clé function selon la syntaxe suivante :</p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    function nom_de_ma_fonction(argument1, argument2, ...){
-        série d'instructions
-    }
-    </span>
-    </code>
+<code>
+<span class="focus">
+function nom_de_ma_fonction(argument1, argument2, ...){
+    série d'instructions
+}
+</span>
+</code>
 </pre>
                     <p class="text">Une la fonction déclarée, il reste à l'appeler, on appel cette étape l'exécution.</p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    nom_de_ma_fonction();
-    </span>
-    </code>
+<code>
+<span class="focus">
+nom_de_ma_fonction();
+</span>
+</code>
 </pre>
                     <p class="text">
                         Il n'existe pas de classe en javascript, il propose en fait un système d'héritage par prototypage, on parle d'objets héritants d'autres d'objets.<br />
                         <strong>Un prototype est un objet à partir duquel on crée de nouveaux objets.</strong>
                     </p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    function auteur(nom, prenom){
-        this.nom = nom;
-        this.prenom = prenom;
-    };
-    function livre(titre,collection,edition,auteur){
-        this.titre = titre;
-        this.collection  = collection;
-        this.edition = edition;
-        this.auteur = auteur;
-    }
-    </span>
-    </code>
+<code>
+<span class="focus">
+function auteur(nom, prenom){
+    this.nom = nom;
+    this.prenom = prenom;
+};
+function livre(titre,collection,edition,auteur){
+    this.titre = titre;
+    this.collection  = collection;
+    this.edition = edition;
+    this.auteur = auteur;
+}
+</span>
+</code>
 </pre>
                     <p class="text">Si on prend l'exemple précedant, en créant un objet auteur, on peut simplement rattacher cet auteur à un ou plusieurs livres :</p>
 <pre class="js">
-    <code>
-    <span class="focus">
-    var auteur1 = new auteur("Branlant","Alexis");
-    var livre1 = new livre("Javascript les bases","Hachette","Premium",auteur1);
-    </span>
-    </code>
+<code>
+<span class="focus">
+var auteur1 = new auteur("Branlant","Alexis");
+var livre1 = new livre("Javascript les bases","Hachette","Premium",auteur1);
+</span>
+</code>
 </pre>
                     <p class="text">On accèdera donc au nom de l'auteur du livre1 comme ceci :</p>
                     <div class="info">
