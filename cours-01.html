@@ -1,0 +1,459 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Introduction au JavaScript</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="medias/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="medias/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="medias/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <link rel="stylesheet" href="medias/css/global.css">
+
+    <script src="medias/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+    <section id="main">
+        <?php include('./menu.html'); ?>
+
+        <div class="page-center">
+            <h1 class="main-title">Introduction au JavaScript</h1>
+            <section>
+                <h2 class="section-title"><i class="icon-step">1</i> Les variables</h2>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">a</i> La déclaration</h3>
+                    <p class="text">Le Javascript étant très souple au niveau de l'écriture (à double-tranchant car il laisse passer des erreurs...), <strong>la déclaration des variables peut se faire de deux façons :</strong></p>
+                    <ul class="text list">
+                        <li>
+                            <i class="icon-long-arrow-right"></i>soit de façon <strong>explicite</strong>, en faisant précéder la variable du mot clé var
+<pre class="js">
+    <code>
+    <span class="focus">var chaine = "bonjour";</span>
+    </code>
+</pre>
+                        </li>
+                        <li>
+                            <i class="icon-long-arrow-right"></i>soit de façon <strong>implicite</strong>, en laissant le navigateur déterminer qu'il s'agit d'une déclaration de variable
+<pre class="js">
+    <code>
+    <span class="focus">chaine = "bonjour";</span>
+    </code>
+</pre>
+                        </li>
+                    </ul>
+                    <h3 class="under-section-title"><i class="icon-step-letter">b</i> Portée (visibilité) des variables</h3>
+                    <p class="text">Selon l'endroit où une variable est déclarée, celle-ci pourra être <strong>accessible (visible) de partout</strong> dans le script ou bien <strong>uniquement dans une portion confinée du code</strong>, on parle de « portée » d'une variable.</p>
+                    <ul class="text list">
+                        <li>
+                            Lorsqu'une variable est déclarée sans le mot clé var, c'est-à-dire de façon implicite, elle est accessible de partout dans le script (n'importe quelle fonction du script peut faire appel à cette variable).<br />
+                            On parle alors de <strong>variable globale</strong>.
+                        </li>
+                        <li>
+                            La portée d'une variable déclarée de façon explicite (précédée du mot-clé var), dépend de l'endroit où elle est déclarée.<br />
+                            <i class="icon-long-arrow-right"></i>Une variable déclarée au début du script, avant toute fonction, sera <strong>globale</strong>. Elle peut être utilisée n'importe où dans le script.<br />
+                            <i class="icon-long-arrow-right"></i>Une variable déclarée explicitement dans une fonction aura une portée limitée à cette seule fonction, c'est-à-dire qu'elle est inutilisable ailleurs. On parle alors de « variable <strong>locale</strong> ».
+                        </li>
+                    </ul>
+<pre class="js">
+    <code>
+    <span class="focus">var a = 12;
+    var b = 4;
+    </span>
+    function MultipliePar2(b) {
+       <span class="focus">var a = b * 2;</span>
+       return a;
+    }
+    document.write("Le double de ",b," est ",MultipliePar2(b));
+    document.write("La valeur de a est ",a);
+    </code>
+</pre>
+                    <div class="info">
+                        <p><i class="icon-info"></i></p>
+                        <p class="text">
+                            Le double de 4 est 8<br />
+                            La valeur de a est 12
+                        </p>
+                    </div>
+<pre class="js">
+    <code>
+    <span class="focus">var a = 12;
+    var b = 4;
+    </span>
+    function MultipliePar2(b) {
+       <span class="focus">a = b * 2;</span>
+       return a;
+    }
+    document.write("Le double de ",b," est ",MultipliePar2(b));
+    document.write("La valeur de a est ",a);
+    </code>
+</pre>
+                    <div class="info">
+                        <p><i class="icon-info"></i></p>
+                        <p class="text">
+                            Le double de 4 est 8<br />
+                            La valeur de a est 8
+                        </p>
+                    </div>
+                    <h3 class="under-section-title"><i class="icon-step-letter">c</i> Les types de données dans les variables</h3>
+                    <p class="text">
+                        En Javascript il n'est pas nécessaire de déclarer le type des variables, contrairement à des langages évolués tels que le langage C ou le Java pour lesquels il faut préciser s'il s'agit d'entier (int), de nombre à virgule flottante (float) ou de caractères (char).<br /><br />
+                        <strong>En fait, le Javascript n'autorise la manipulation que de 4 types de données :</strong>
+                    </p>
+                    <ul class="text list">
+                        <li><i class="icon-long-arrow-right"></i>des <strong>nombres</strong> : entiers (int) ou à virgules (float)</li>
+                        <li><i class="icon-long-arrow-right"></i>des <strong>chaînes de caractères</strong> (string) : une suite de caractères</li>
+                        <li>
+                            <i class="icon-long-arrow-right"></i>des <strong>booléens</strong> (bool): des variables permettant de vérifier une condition.
+                            <p class="text">
+                                <i class="icon-ok"></i>true : si le résultat est vrai<br />
+                                <i class="icon-remove"></i>false : lors d'un résultat faux
+                            </p>
+                        </li>
+                        <li><i class="icon-long-arrow-right"></i>des variables de <strong>type null</strong>: un mot caractèristique pour indiquer que la variable ne contient aucune donnée.</li>
+                    </ul>
+                    <h3 class="under-section-title"><i class="icon-step-letter">d</i> Conversions de types</h3>
+                    <p class="text">
+                        Même si Javascript gère de façon transparente les changements de type des variables, il est parfois nécessaire de forcer la conversion du type.<br />
+                        Ainsi Javascript fournit deux fonctions natives permettant de convertir le type des variables passées en paramètre :
+                    </p>
+                    <ul class="text list">
+                        <li><i class="icon-long-arrow-right"></i><strong>parseInt()</strong> permet de convertir une variable en nombre</li>
+                        <li><i class="icon-long-arrow-right"></i><strong>parseFloat()</strong> permet de convertir une variable en nombre décimal</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">2</i> Les tableaux</h2>
+                <div class="div1tab">
+                    <p class="text">
+                        Les variables de Javascript ne permettent de stocker qu'une seule donnée à la fois.<br />
+                        Or, étant donné qu'il est souvent utile de manipuler de nombreuses données, le concept de variable se révéle parfois insuffisant, car il devient difficile de gérer un grand nombre de variable distinctes.<br /><br />
+                        Pour y remédier Javascript propose une structure de données permettant de stocker l'ensemble de ces données dans une "variable commune" : le tableau.<br /><br />
+                        <strong>Un tableau, en Javascript, est donc une variable pouvant contenir plusieurs données indépendantes, indexées par un numéro, appelé indice.</strong><br />
+                        L'indice d'un tableau est ainsi l'élément permettant d'accéder aux données qui y sont stockées.<br /><br />
+                        <strong>Il existe 2 méthodes pour déclarer un tableau :</strong>
+                    </p>
+<pre class="js">
+    <code>
+    <span class="focus">var MonTableau = ["donnée 1", "donnée 2", "donnée 3", "donnée 4"];
+    var MonTableau = new Array("donnée 1", "donnée 2", "donnée 3", "donnée 4");</span>
+    </code>
+</pre>
+                    <p class="text">Pour plus de rigueur, un tableau devrait être déclaré avant que l'on lui affecte des valeurs. </p>
+<pre class="js">
+    <code>
+    <span class="focus">var MonTableau = new Array();</span>
+    </code>
+</pre>
+                    <p class="text">
+                        Il  est possible d'utiliser des indices personnalisés pour indexer les valeurs du tableau, on parle alors de tableau associatif. Javascript autorise en effet l'utilisation d'une chaîne ou d'un nombre spécifique pour indexer les valeurs du tableau.<br />
+                        Voici un exemple de représentation d'un tableau associatif :
+                    </p>
+<pre class="js">
+    <code>
+    <span class="focus">MonTableau["Pierre"] = 12;
+    MonTableau["Jean-François"] = 25;
+    MonTableau["Paul"] = 16;
+    MonTableau["André"] = 22;</span>
+    </code>
+</pre>
+                    <div class="info">
+                        <i class="icon-info"></i>
+                        <table class="table-info"><tbody><tr><th>Indice</th><td>"Paul"</td><td>"André"</td><td>"Pierre"</td><td>"Jean-François"</td></tr><tr><th>Donnée</th><td>16</td><td>22</td><td>12</td><td>25</td></tr></tbody></table>
+                    </div>
+                    <p>Le langage Javascript propose l'objet Array, comportant de nombreuses méthodes permettant de manipuler les tableaux, c'est-à-dire d'insérer, supprimer, ou extraire des éléments dans le tableau et également de trier les élément du tableau.</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    MonTableau.push('donnée'); //Cette méthode ajoute un ou plusieurs éléments au tableau.
+    MonTableau.splice(); //Cette méthode ajoute/retire des éléments d'un tableau.
+    MonTableau.sort(); //Cette méthode permet de trier les éléments d'un tableau.
+    MonTableau.join(); //Cette méthode renvoie une chaîne de caractères contenant tous les éléments du tableau.
+    </span>
+    </code>
+</pre>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">3</i> Les boucles</h2>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">a</i> WHILE</h3>
+                    <p class="text">Tant que la condition est satisfaite, on répète les instructions.</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    while(condition){
+        instructions
+    }
+    </span>
+    </code>
+</pre>
+                    <h3 class="under-section-title"><i class="icon-step-letter">b</i> FOR</h3>
+<pre class="js">
+    <code>
+    <span class="focus">
+    for(initialisation ; condition ; incrementation){
+        instructions
+    }
+    </span>
+    </code>
+</pre>
+                    <div class="info">
+                        <i class="icon-info"></i>
+                        <p class="text">&Eacute;vitez de modifier la variable qui sert de compteur à l'extérieur des parenthèses du for, qui sont prévues pour ça.</p>
+                    </div>
+                    <h3 class="under-section-title"><i class="icon-step-letter">c</i> DO WHILE</h3>
+                    <p>Le test est effectué après les instructions, ce qui veut dire que ces dernières seront exécutées au moins une fois, quelle que soit la condition.</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    do{
+        instructions
+    } while(condition);
+    </span>
+    </code>
+</pre>
+                    <h3 class="under-section-title"><i class="icon-step-letter">d</i> Le mot clé : break</h3>
+					<p class="text">
+						Le mot clé break permet de mettre fin immédiatement à une boucle en cours.<br />
+						Il renvoie directement à la sortie de la boucle sans exécuter le code qui le suit dans la boucle.
+					</p>
+					<h3 class="under-section-title"><i class="icon-step-letter">e</i> Le mot clé : continue</h3>
+					<p class="text">
+						Le mot clé continue permet de passer directement à l'itération suivante.<br />
+						Il renvoie directement à l'itération suivante de la boucle sans exécuter le code qui le suit dans la boucle.
+					</p>
+					A faire encore :Break, continue, boucles imbriquées
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">4</i> Les opérateurs</h2>
+                <div class="div1tab">
+                    <p class="text">Les opérateurs sont des symboles mathématiques qui permettent de manipuler des variables, c'est-à-dire effectuer des opérations, les évaluer, ... </p>
+                    <h3 class="under-section-title"><i class="icon-step-letter">a</i> Les opérateurs de calcul</h3>
+                    <p class="text">Les opérateurs de calcul permettent de modifier mathématiquement la valeur d'une variable.</p>
+                    <table class="table-info"><tbody>
+                        <tr><th>Opérateur</th><th>Dénomination</th><th>Effet</th><th>Exemple (X = 8)</th></tr>
+                        <tr><th>+</th><td>opérateur d'addition</td><td>Ajoute deux valeurs</td><td>X + 2 = 10</td></tr>
+                        <tr><th>-</th><td>opérateur de soustraction</td><td>Soustrait deux valeurs</td><td>X - 3 = 5</td></tr>
+                        <tr><th>*</th><td>opérateur de multiplication</td><td>Multiplie deux valeurs</td><td>X * 2 = 16</td></tr>
+                        <tr><th>/</th><td>opérateur de division</td><td>Divise deux valeurs</td><td>X / 2 = 4</td></tr>
+                        <tr><th>=</th><td>opérateur d'affectation</td><td>Affecte une valeur à une variable</td><td>X = 3 ré-affecte la valeur de X à 3</td></tr>
+                        <tr><th>%</th><td>opérateur modulo</td><td>Retourne le reste de la division entière de l'opérande de gauche par celle de droite</td><td>X % 3 = 2</td></tr>
+                    </tbody></table>
+                    <h3 class="under-section-title"><i class="icon-step-letter">b</i> Les opérateurs d'affectation</h3>
+                    <p class="text">
+                        Ces opérateurs permettent de simplifier des opérations telles que ajouter une valeur dans une variable et stocker le résultat dans la variable.<br />
+                        Une telle opérations s'écrirait habituellement de la façon suivante par exemple : X = X + 2<br />
+                        Avec les opérateurs d'assignation il est possible d'écrire cette opération sous la forme suivante : X += 2<br />
+                        Ainsi, si la valeur de X était 8 avant opération, elle sera de 10 après...
+                    </p>
+                    <table class="table-info"><tbody>
+                    <tr><th>Opérateur</th><th>Effet</th></tr>
+                    <tr><th>+=</th><td>ajoute l'opérande de gauche par l'opérande de droite et stocke le résultat dans l'opérande de gauche.</td></tr>
+                    <tr><th>-=</th><td>soustrait l'opérande de droite à l'opérande de gauche et stocke le résultat dans l'opérande de gauche.</td></tr>
+                    <tr><th>*=</th><td>multiplie l'opérande de gauche par l'opérande de droite et stocke le résultat dans l'opérande de gauche.</td></tr>
+                    <tr><th>/=</th><td>divise l'opérande de gauche par l'opérande de droite et stocke le résultat dans l'opérande de gauche.</td></tr>
+                    <tr><th>%=</th><td>calcule le reste de la division entière de l'opérande de gauche par l'opérande de droite et stocke le résultat dans l'opérande de gauche.</td></tr>
+                    </tbody></table>
+                    <h3 class="under-section-title"><i class="icon-step-letter">c</i> Les opérateurs d'incrémentation</h3>
+                    <p class="text">
+                        Ce type d'opérateur permet de facilement augmenter ou diminuer d'une unité une variable.<br />
+                        Ces opérateurs sont très utiles pour des structures telles que des boucles, qui ont besoin d'un compteur (variable qui augmente de un en un).<br />
+                        Un opérateur de type X++ permet de remplacer des notations lourdes telles que X = X + 1 ou bien X += 1
+                    </p>
+                    <table class="table-info"><tbody>
+                    <tr><th>Opérateur</th><th>Dénomination</th><th>Effet</th><th>Exemple (X = 8)</th></tr>
+                    <tr><th>++</th><td>Incrémentation</td><td>Augmente d'une unité la variable</td><td>X++ <i class="icon-arrow-right"></i> X = 9</td></tr>
+                    <tr><th>--</th><td>Décrémentation</td><td>Diminue  d'une unité la variable</td><td>X-- <i class="icon-arrow-right"></i> X = 7</td></tr>
+                    </tbody></table>
+                    <h3 class="under-section-title"><i class="icon-step-letter">d</i> Les opérateurs de comparaison</h3>
+                    <p class="text"> Ces opérateurs permettent de comparer deux variables, voir une variable avec elle même plus autre chose.</p>
+                    <table class="table-info"><tbody>
+                    <tr><th>Opérateur</th><th>Dénomination</th><th>Effet</th><th>Exemple (X = 8)</th></tr>
+                    <tr><th>==</th><td>opérateur d'égalité</td><td>Compare deux valeurs et vérifie leur égalité</td><td>X == 3 <i class="icon-arrow-right"></i> retourne false<br />X == 8 <i class="icon-arrow-right"></i> retourne true</td></tr>
+                    <tr><th>===</th><td>opérateur d'identité</td><td>Vérifie l'identité de valeur et de type de deux valeurs</td><td>X === Y (Y = "8")<i class="icon-arrow-right"></i> retourne false<br />X === Y (Y = 8)<i class="icon-arrow-right"></i> retourne true</td></tr>
+                    <tr><th>!=</th><td>opérateur de différence</td><td>Vérifie qu'une variable est différente d'une valeur</td><td>X != 3 <i class="icon-arrow-right"></i> retourne true<br />X != 8 <i class="icon-arrow-right"></i> retourne false</td></tr>
+                    <tr><th>!==</th><td>opérateur de non identité</td><td>Vérifie la non identité de valeur et de type de deux valeurs, c'est-à-dire si les deux valeurs n'ont pas la même valeur ou bien sont de types différents.</td><td>X !== Y (Y = "8")<i class="icon-arrow-right"></i> retourne true<br />X !== Y (Y = 8)<i class="icon-arrow-right"></i> retourne false</td></tr>
+                    <tr><th><</th><td>opérateur d'infériorité stricte</td><td>Vérifie qu'une variable est strictement inférieure à une valeur</td><td>X < 9 <i class="icon-arrow-right"></i> true<br />X < 7 <i class="icon-arrow-right"></i> false</td></tr>
+                    <tr><th>></th><td>opérateur de supériorité stricte</td><td>Vérifie qu'une variable est strictement supérieure à une valeur</td><td>X > 9 <i class="icon-arrow-right"></i> false<br />X < 7 <i class="icon-arrow-right"></i> true</td></tr>
+                    <tr><th><= ou >=</th><td>opérateur d'infériorité ou de supériorité </td><td>Vérifie qu'une variable est inférieur/supérieure ou égale à une valeur</td><td>X <= 9 <i class="icon-arrow-right"></i> true<br />X <= 7 <i class="icon-arrow-right"></i> false<br >X <= 8 <i class="icon-arrow-right"></i> true</td></tr>
+                    </tbody></table>
+                    <h3 class="under-section-title"><i class="icon-step-letter">e</i> Les opérateurs logiques (booléens)</h3>
+                    <p class="text">Ce type d'opérateur permet de vérifier si plusieurs conditions sont vraies</p>
+                    <table class="table-info"><tbody>
+                    <tr><th>Opérateur</th><th>Dénomination</th><th>Effet</th><th>Exemple</th></tr>
+                    <tr><th>||</th><td>OU logique</td><td>Vérifie qu'une des conditions est réalisée</td><td>((expression1) || (expression2))</td></tr>
+                    <tr><th>&&</th><td>ET logique</td><td>Vérifie que toutes les conditions sont réalisées</td><td>((expression1) && (expression2))</td></tr>
+                    <tr><th>!</th><td>NON logique</td><td>Inverse l'état d'une variable booléenne (retourne la valeur 1 si la variable vaut 0, 0 si elle vaut 1)</td><td>(!condition)</td></tr>
+                    </tbody></table>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">5</i> Les conditions</h2>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">a</i> L'instruction if</h3>
+                    <p class="text">
+                        L'instruction if est la structure de test la plus basique, on la retrouve dans tous les langages (avec une syntaxe parfois différente d'un langage à l'autre...). Elle permet d'exécuter une série d'instructions (un bloc d'instructions) si jamais une condition est réalisée.<br />
+                        La syntaxe de cette expression est la suivante :
+                    </p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    if (condition) {
+        série d'instructions
+    }
+    </span>
+    </code>
+</pre>
+                    <div class="info">
+                        <i class="icon-info"></i>
+                        <p class="text">il est possible de définir plusieurs conditions à remplir avec les opérateurs ET et OU (&& et ||)</p>
+                    </div>
+                    <h3 class="under-section-title"><i class="icon-step-letter">b</i> L'instruction if ... else</h3>
+                    <p class="text">
+                        L'instruction if dans sa forme basique ne permet de tester qu'une condition, or la plupart du temps on aimerait pouvoir choisir les instructions à exécuter en cas de non réalisation de la condition...<br />
+                        L'expression if ... else permet d'exécuter une autre série d'instruction en cas de non-réalisation de la condition.<br />
+                        La syntaxe de cette expression est la suivante :
+                    </p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    if (condition) {
+        //série d'instructions
+    }
+    else {
+        //autre série d'instructions
+    }
+    </span>
+    </code>
+</pre>
+                    <h3 class="under-section-title"><i class="icon-step-letter">c</i> Les opérateurs ternaires</h3>
+                    <p class="text">Il est possible de faire un test avec une structure beaucoup moins lourde grâce à la structure suivante :</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    (condition) ? série d'instruction si vrai : serie d'instruction si faux;
+    </span>
+    </code>
+</pre>
+                    <div class="info">
+                        <i class="icon-info"></i>
+                        <p class="text">Cet opérateurs est souvent utilisé dans l'affection de valeur à une variable</p>
+                        <p class="text">
+                            var prenom = "Alexis";<br />
+                            var nom = (prenom == "Alexis") ? "Branlant" : null ;<br />
+                            Dans ce cas, la variable nom prendra la valeur "Branlant"<br />
+                            var prenom = "Thomas";<br />
+                            var nom = (prenom == "Alexis") ? "Branlant" : null ;<br />
+                            Dans ce cas, la variable nom prendra la valeur null
+                        </p>
+                    </div>
+                    <h3 class="under-section-title"><i class="icon-step-letter">d</i> L'instruction switch...case</h3>
+                    <p class="text">
+                        L'instruction switch permet de faire plusieurs tests de valeurs sur le contenu d'une même variable.<br />
+                        Ce branchement conditionnel simplifie beaucoup le test de plusieurs valeurs d'une variable, car cette opération aurait été compliquée (mais possible) avec des if imbriqués.<br />
+                        Sa syntaxe est la suivante :
+                    </p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    switch (Variable) {
+        case Valeur1:
+            série d'instructions;
+            break;
+        case Valeur2:
+            série d'instructions;
+            break;
+        default:
+            série d'instructions;
+            break;
+    }
+    </span>
+    </code>
+</pre>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">6</i> Les functions</h2>
+                <div class="div1tab">
+                    <p class="text">Les fonctions permettent de regrouper une série d'instructions, permettant de simplifier et de clarifier le code. D'autre part, une fonction peut faire appel à elle-même, on parle alors de fonction récursive.</p>
+                    <p class="text">La définition d'une fonction s'appelle "déclaration". La déclaration d'une fonction se fait grâce au mot clé function selon la syntaxe suivante :</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    function nom_de_ma_fonction(argument1, argument2, ...){
+        série d'instructions
+    }
+    </span>
+    </code>
+</pre>
+                    <p class="text">Une la fonction déclarée, il reste à l'appeler, on appel cette étape l'exécution.</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    nom_de_ma_fonction();
+    </span>
+    </code>
+</pre>
+                    <p class="text">
+                        Il n'existe pas de classe en javascript, il propose en fait un système d'héritage par prototypage, on parle d'objets héritants d'autres d'objets.<br />
+                        <strong>Un prototype est un objet à partir duquel on crée de nouveaux objets.</strong>
+                    </p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    function auteur(nom, prenom){
+        this.nom = nom;
+        this.prenom = prenom;
+    };
+    function livre(titre,collection,edition,auteur){
+        this.titre = titre;
+        this.collection  = collection;
+        this.edition = edition;
+        this.auteur = auteur;
+    }
+    </span>
+    </code>
+</pre>
+                    <p class="text">Si on prend l'exemple précedant, en créant un objet auteur, on peut simplement rattacher cet auteur à un ou plusieurs livres :</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    var auteur1 = new auteur("Branlant","Alexis");
+    var livre1 = new livre("Javascript les bases","Hachette","Premium",auteur1);
+    </span>
+    </code>
+</pre>
+                    <p class="text">On accèdera donc au nom de l'auteur du livre1 comme ceci :</p>
+                    <div class="info">
+                        <i class="icon-info"></i>
+                        <p class="text">alert(livre1.auteur.nom); affichera une boite de dialogue contenant : Branlant</p>
+                        <p class="text">livre1.auteur.nom = "B."; modifiera "Branlant" par "B."</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <div id="overlay"></div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="medias/js/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="medias/js/plugins.js"></script>
+<script src="medias/js/functions.js"></script>
+</body>
+</html>
