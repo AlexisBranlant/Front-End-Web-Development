@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384709638815" ignored="false" />
     <file path="/index.html" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384710186991" ignored="false" />
-    <file path="/layouts.less" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384710121472" ignored="false" />
+    <file path="/layouts.less" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384710940856" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,19 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="51" selection-start="997" selection-end="997" vertical-scroll-proportion="0.68209875">
+            <state line="52" column="16" selection-start="2502" selection-end="2502" vertical-scroll-proportion="-23.615385">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layouts.less" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="layouts.less" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="28" selection-start="121" selection-end="121" vertical-scroll-proportion="-3.4">
+            <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="0.23574731">
               <folding />
             </state>
           </provider>
@@ -62,8 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/medias/css/layouts.less" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/medias/css/layouts.less" />
       </list>
     </option>
   </component>
@@ -274,16 +274,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="28" selection-start="121" selection-end="121" vertical-scroll-proportion="-3.4">
+        <state line="52" column="16" selection-start="2502" selection-end="2502" vertical-scroll-proportion="-23.615385">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="51" selection-start="997" selection-end="997" vertical-scroll-proportion="0.68209875">
+        <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="0.23574731">
           <folding />
         </state>
       </provider>
