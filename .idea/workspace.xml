@@ -26,19 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="16" selection-start="2502" selection-end="2502" vertical-scroll-proportion="-23.615385">
+            <state line="6" column="99" selection-start="222" selection-end="222" vertical-scroll-proportion="0.1574074">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layouts.less" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="layouts.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="0.23574731">
+            <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="-6.12">
               <folding />
             </state>
           </provider>
@@ -62,8 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/medias/css/layouts.less" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -274,16 +274,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="16" selection-start="2502" selection-end="2502" vertical-scroll-proportion="-23.615385">
+        <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="-6.12">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="0.23574731">
+        <state line="6" column="99" selection-start="222" selection-end="222" vertical-scroll-proportion="0.1574074">
           <folding />
         </state>
       </provider>
