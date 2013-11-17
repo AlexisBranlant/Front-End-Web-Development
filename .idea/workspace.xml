@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384709638815" ignored="false" />
     <file path="/index.html" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384710186991" ignored="false" />
-    <file path="/layouts.less" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384711525090" ignored="false" />
+    <file path="/layouts.less" changelist="479ec34b-1b3b-491f-977d-27183861e594" time="1384711643184" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +38,7 @@
       <file leaf-file-name="layouts.less" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="29" selection-start="280" selection-end="280" vertical-scroll-proportion="0.26194146">
+            <state line="4" column="23" selection-start="92" selection-end="92" vertical-scroll-proportion="0.104776576">
               <folding />
             </state>
           </provider>
@@ -283,7 +283,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/medias/css/layouts.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="280" selection-end="280" vertical-scroll-proportion="0.26194146">
+        <state line="4" column="23" selection-start="92" selection-end="92" vertical-scroll-proportion="0.104776576">
           <folding />
         </state>
       </provider>
