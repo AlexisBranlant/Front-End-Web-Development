@@ -43,12 +43,21 @@ var object = {};//remplacer le nopm de l object par le nom du projet
 	}
 
     object.mainNav = function(){
-        $(document.getElementById('link-main-nav')).on('click',function(event){
-            event.stopPropagation();
-            event.preventDefault();
-            $(document.getElementById('main-nav')).toggleClass('open');
-            $(document.getElementById('overlay')).toggleClass('open');
+        $(document.getElementById('open-main-nav')).on('click',function(event){
+            if($('html').hasClass('lt-ie9')){
+                event.stopPropagation();
+                event.preventDefault();
+                $(document.getElementById('main-nav')).toggleClass('open');
+                $(document.getElementById('overlay')).toogleClass('open');
+            } else {
+                $(document.getElementById('overlay')).addClass('open');
+            }
         });
+        if(!$('html').hasClass('lt-ie9')){
+            $(document.getElementById('close-main-nav')).on('click',function(event){
+                $(document.getElementById('overlay')).removeClass('open');
+            });
+        }
         $(document.getElementById('overlay')).on('click',function(event){
             event.stopPropagation();
             event.preventDefault();
@@ -56,10 +65,6 @@ var object = {};//remplacer le nopm de l object par le nom du projet
             $(document.getElementById('overlay')).toggleClass('open');
         });
         $(document.getElementById('overlay')).height($(document.getElementsByTagName('window')).height());
-        var MonTableau = new Array();
-        MonTableau.push(12);
-        MonTableau["Pierre"] = 12;
-        console.log(MonTableau);
     }
     $(function(){//document ready
 		if(object.debug){

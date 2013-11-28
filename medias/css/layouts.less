@@ -28,11 +28,18 @@ a:hover,a.active{color:@blueDark;}
 #main-nav .list li{padding:0 0 10px;}
 #main-nav .list li a:hover i{text-decoration:none;}
 
-#link-main-nav{position:fixed;top:10px;left:20px;z-index:2;}
-#link-main-nav:hover i{text-decoration:none;}
-#main-nav{position:fixed;top:60px;left:0;background:#fff;z-index:2;}
-#main-nav .list{position:absolute;top:0;left:-350px;width:350px;display:block;.transition(all 1s ease-out);}
-#main-nav.open .list{left:20px;.transition(all 1s ease-in);}
+#close-main-nav,#open-main-nav{position:fixed;top:10px;left:20px;z-index:2;}
+#close-main-nav:hover i,#open-main-nav:hover i{text-decoration:none;}
+#close-main-nav{display:none;}
+#main-nav-close{position:fixed;top:60px;left:0;background:#fff;z-index:2;}
+#main-nav .list{position:absolute;top:0;left:-350px;width:350px;display:block;.transition(all 1s ease-in);}
+#main-nav.open .list{left:20px;}
+
+#main-nav:target .list{left:20px;}
+#main-nav-close:target .list{left:-350px;}
+
+#main-nav:target #open-main-nav{display:none;}
+#main-nav:target #close-main-nav{display:block;}
 
 
 //overlay
