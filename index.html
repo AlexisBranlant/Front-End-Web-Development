@@ -50,7 +50,16 @@
                     <i class="icon-long-arrow-right"></i>Enfin vient le JavaScript qui va permettre à l’utilisateur d’interagir avec la page, comme il le ferait avec des interrupteurs par exemple. Il sera utile pour écouter ce qu’il se passe sur la page (click, focus sur un champ, scroll…) et déclencher les actions adaptées.<br /><br />
                     C’est bien entendu le JavaScript qui va nous intéresser dans cet article, où nous allons en découvrir les bases. Attention, le Javascript permet beaucoup de manipulations intéressantes et souvent obligatoires, mais c’est aussi le plus compliqué, alors accrochez-vous !
                 </p>
-                <?php include('./menu.html'); ?>
+                <nav id="main-nav-close">
+                    <div id="main-nav">
+                        <ul class="list">
+                            <li><a href="cours-01.html" title="Introduction au JavaScript"><i class="icon-chevron-right"></i>Introduction au JavaScript</a></li>
+                            <li><a href="cours-02.html" title="Vers la programmation orientée objet"><i class="icon-chevron-right"></i>Vers la programmation orientée objet</a></li>
+                        </ul>
+                        <a id="open-main-nav" href="#main-nav" title="Menu"><i class="icon-list icon-2x"></i>Voir le Menu</a>
+                        <a id="close-main-nav" href="#main-nav-close" title="Menu"><i class="icon-list icon-2x"></i>Fermer le Menu</a>
+                    </div>
+                </nav>
             </div>
         </section>
             <div id="overlay"></div>

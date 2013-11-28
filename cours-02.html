@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Vers la programmation orientée objet</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="medias/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="medias/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="medias/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <link rel="stylesheet" href="medias/css/global.css">
+
+    <script src="medias/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+    <section id="main">
+        <?php include('./menu.html'); ?>
+
+        <div class="page-center">
+            <h1 class="main-title">Vers la programmation orientée objet</h1>
+            <p>
+                Dans la programmation dite classique, les données sont passées à des fonctions, des procédures, qui se chargent de les traiter.<br />
+                En programmation orientée objet, les données possèdent elles même des fonctions (on les appelle des méthodes)!<br />
+                En programmation objet, on a la possibilité de garder une programmation procédurale.
+            </p>
+            <section>
+                <h2 class="section-title"><i class="icon-step">1</i> L'objet en JavaScript</h2>
+                <div class="div1tab">
+                    <p class="text">
+                        Le concept de base de la programmation orientée objet est bien évidemment l'objet, entité désignée également par le terme instance.<br />
+                        la notion d'objet est associé au concept de classe qui permet de définir la structure de l'objet, à savoir ses attributs et ses méthodes, ainsi que ses liens aux autres classes (héritage, association...). L'objet est alors créé à partir d'une classe par instanciation.<br />
+                        Tout d'abord, en JavaScript, la notion de classe n'existe pas et le langage n'est pas typé.<br />
+                        Le langage JavaScript permet de créer simplement un objet en se fondant sur l'objet Object ou en utilisant une forme litérale dont la syntaxe est décrite par la notation JSON.
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">var obj1 = new Object(); // A partir de l'objet Object
+        var obj2 = {}; // Avec la notation JSON</span>
+    </code>
+</pre>
+                    <p class="text">On peut également déclarer le document ready de cette manière :</p>
+<pre class="js">
+    <code>
+        <span class="focus">$(function() {
+            // Handler for .ready() called.
+        });</span>
+    </code>
+</pre>
+                    <p class="text">
+                        L’objet est considéré comme un tableau associatif
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">var obj = new Object(); obj["attribut"] = "valeur1";
+        // similaire à obj.attribut = "valeur1";
+
+        obj["methode"] = function(parametre1, parametre2) {
+            alert("parametres: " + parametre1 + ", " + parametre2);
+        };
+        // similaire à obj.methode = ...
+
+        // Affichage de la valeur de attribut de obj
+        alert("Valeur de attribut: " + obj.attribut);
+
+        // Exécution de la méthode methode de obj
+        obj.methode("valeur1", "valeur2");</span>
+    </code>
+</pre>
+                    <p class="text">Voici le même code en notation JSON.</p>
+<pre class="js">
+    <code>
+        <span class="focus">var obj = {
+            attribut: "valeur",
+            methode: function(parametre1, parametre2) {
+                alert("parametres: " + parametre1 + ", " + parametre2);
+            }
+        }
+        // Affichage de la valeur de attribut de obj
+        alert("Valeur de attribut: " + obj.attribut);
+
+        // Exécution de la méthode methode de obj
+        obj.methode("valeur1", "valeur2");</span>
+    </code>
+</pre>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">2</i> Les indispensables pour la programmation objet</h2>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">a</i> La fonction</h3>
+                    <p class="text">
+                        Une fonction peut être référencée par l'intermédiaire d'une variable et être utilisée telle quelle par la suite.<br />
+                        En JS, une fonction :<br />
+                        <i class="icon-arrow-right"></i>est considérée comme un objet de type "function".<br />
+                        <i class="icon-arrow-right"></i>rattachée à un objet est appelée "méthode"<br />
+                        <i class="icon-arrow-right"></i>possède une variable "arguments" dans tous les cas<br />
+                        <i class="icon-arrow-right"></i>peut avoir le même nom qu'une autre fonction déjà déclarée, auquel cas c’est la dernière déclarée qui sera exécutée
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">function test() {
+            alert("Nombre de paramètres: " + arguments.length);
+            for(var i=0; i < arguments.length; i++) {
+                alert("Paramètre " + i + ": " + arguments[i]);
+            }
+        }
+        test("valeur1", "valeur2");</span>
+    </code>
+</pre>
+                    <h3 class="under-section-title"><i class="icon-step-letter">b</i> La closure</h3>
+                    <p class="text">Une closure, c'est une fonction qui récupère les variables du scope où elle était.</p>
+<pre class="js">
+    <code>
+        <span class="focus">function maFonction(parametre) {
+            var maVariable = parametre;
+            function monAutreFonction() {
+                alert("maVariable : " + maVariable);
+            }
+            return monAutreFonction;
+        }
+        var fonction = maFonction("mon paramètre");
+        fonction();// Affiche la valeur "mon paramètre"</span>
+    </code>
+</pre>
+                    <div class="info">
+                        <p><i class="icon-info"></i></p>
+                        <p class="text">
+                            Voici un exemple concret :<br />
+                            function incremente() {<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;var i = 0;<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;return function() {<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i++;<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+                            }<br />
+                            var g = incremente();<br />
+                            console.log(g()); // 0<br />
+                            console.log(g()); // 1<br />
+                            var h = incremente();<br />
+                            console.log(h()); // 0, not 2
+                        </p>
+                    </div>
+                    <h3 class="under-section-title"><i class="icon-step-letter">c</i> Le mot clé "this"</h3>
+                    <p class="text">Il est utilisé dans une méthode afin de référencer l'instance sur laquelle est exécutée cette méthode.</p>
+<pre class="js">
+    <code>
+        <span class="focus">var maFonction = function() {
+            alert("attribut: " + this.attribut);
+        };
+        maFonction();// Affiche la valeur undefined
+
+        var obj1 = {
+            attribut: "valeur1",
+            methode: maFonction
+        }
+        obj1.methode();// Affiche la valeur de attribut, à savoir valeur1
+
+        var obj2 = {
+            attribut: "valeur2",
+            methode: maFonction
+        }
+        obj2.methode();// Affiche la valeur de attribut, à savoir valeur2 </span>
+    </code>
+</pre>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">3</i> Structure des objets avec JavaScript</h2>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">a</i> Structure simple</h3>
+                    <p class="text">Le JS ne supporte pas le concept de "classe", nous allons utiliser les concepts des fonctions et closures du langage.</p>
+                    <p class="text">
+                        Le mot clé "new" permet d'initialiser un objet<br />
+                        Utilisation du mot clé "this" afin de définir les éléments publiques de la classe.
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">function maClasse(parametre1, parametre2) {
+            this.attribut1 = parametre1;
+            this.attribut2 = parametre2;
+            this.methode = function() {
+                alert("Attributs: " + this.attribut1 + ", " + this.attribut2);
+            }
+        }
+        var obj = new maClasse("valeur1", "valeur2");
+        alert("Attribut1: " + obj.attribut1); // Affiche la valeur de l'attribut attribut1
+        obj.methode(); // Affiche la chaîne de caractères contenant les valeurs des attributs</span>
+    </code>
+</pre>
+                    <p class="text">En remplacant "this" par "var" les éléments deviennent privés</p>
+<pre class="js">
+    <code>
+        <span class="focus">function maClasse(parametre1, parametre2) {
+            var attribut1 = parametre1;
+            var attribut2 = parametre2;
+            this.methode = function() {
+                alert("Attributs: " + this.attribut1 + ", " + this.attribut2);
+            }
+        }
+        var obj = new maClasse("valeur1", "valeur2");
+        alert("Attribut1: " + obj.attribut1); // retourne undefined
+        obj.methode(); // Affiche la chaîne de caractères contenant les valeurs des attributs</span>
+    </code>
+</pre>
+                    <p class="text">On peut en faire de même pour rendre une méthode privée. Attention on ne pourra plus faire appel à la méthode en dehors de la fonction.</p>
+<pre class="js">
+    <code>
+        <span class="focus">function maClasse(parametre1, parametre2) {
+            var attribut1 = parametre1;
+            var attribut2 = parametre2;
+            var methode = function() {
+                alert("Attributs: " + this.attribut1 + ", " + this.attribut2);
+            }
+        }
+        var obj = new maClasse("valeur1", "valeur2");
+        alert("Attribut1: " + obj.attribut1); // retourne undefined
+        obj.methode(); // retourne une erreur : obj.method is not a function</span>
+    </code>
+</pre>
+                    <p class="text">
+                        La déclaration des classes de cette manière reste simple mais suppose un problème de performance.<br />
+                        En effet, à chaque appel de la méthode de construction de l'objet, une nouvelle méthode "methode" est créée pour l'objet.<br />
+                        Pour améliorer la performance, il faudrait que tous les objets de type "maClasse" pointent vers une seule est unique méthode "methode" commune à tous ces objets.
+                    </p>
+                    <p class="text">La fonctionnalité de <strong>prototypage</strong> de JavaScript permet de pallier à cet aspect.</p>
+                </div>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">b</i> Le prototypage</h3>
+                    <p class="text">le prototypage correspond à spécifier une sorte de modèle indépendamment du constructeur afin d'initialiser chaque objet à sa création.</p>
+                    <p class="text">Pour se faire, on utilise la propriété "prototype" de l’objet "function"</p>
+<pre class="js">
+    <code>
+        <span class="focus">function maClasse(parametre1, parametre2) {
+            this.attribut1 = parametre1;
+            this.attribut2 = parametre2;
+        }
+
+        maClasse.prototype = {
+            methode: function() {
+                alert("Attributs: " + this.attribut1 + ", " + this.attribut2);
+            }
+        }
+        var obj = new maClasse("valeur1", "valeur2");
+        alert("Attribut1: " + obj.attribut1); // Affiche la valeur de l'attribut attribut1
+        obj.methode(); // Affiche la chaîne de caractères contenant les valeurs des attributs</span>
+    </code>
+</pre>
+                    <p class="text">Comme vous avez pu le voir, JavaScript met en oeuvre une variante de la programmation orientée objet, à savoir la programmation orientée objet par prototype.</p>
+                </div>
+            </section>
+        </div>
+    </section>
+    <div id="overlay"></div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="medias/js/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="medias/js/plugins.js"></script>
+<script src="medias/js/functions.js"></script>
+</body>
+</html>
