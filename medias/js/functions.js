@@ -48,7 +48,7 @@ var object = {};//remplacer le nopm de l object par le nom du projet
                 event.stopPropagation();
                 event.preventDefault();
                 $(document.getElementById('main-nav')).toggleClass('open');
-                $(document.getElementById('overlay')).toogleClass('open');
+                $(document.getElementById('overlay')).toggleClass('open');
             } else {
                 $(document.getElementById('overlay')).addClass('open');
             }
