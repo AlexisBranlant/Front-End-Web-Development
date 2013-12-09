@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Javascript : Developpement FrontEnd / Formation JavaScript" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="medias/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" media="screen" href="medias/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="medias/css/global.css">
+
+    <title>Developpement Front-End / Formation JavaScript - Introduction à jQuery</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/AlexisBranlant/JavaScript">View on GitHub</a>
+
+        <h1 id="project_title">Developpement Web Front-End</h1>
+        <h2 id="project_tagline">Formation JavaScript - Introduction à jQuery</h2>
+
+        <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/AlexisBranlant/JavaScript/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/AlexisBranlant/JavaScript/tarball/master">Download this project as a tar.gz file</a>
+        </section>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+<section id="main_content" class="inner">
+    <section id="main">
+        <nav id="main-nav-close">
+            <div id="main-nav">
+                <ul class="list">
+                    <li><a href="index.html" title="Accueil formation"><i class="icon-chevron-right"></i>Accueil formation</a></li>
+                    <li><a href="cours-01.html" title="Introduction au JavaScript"><i class="icon-chevron-right"></i>Introduction au JavaScript</a></li>
+                    <li><a href="cours-02.html" title="Vers la programmation orientée objet"><i class="icon-chevron-right"></i>Vers la programmation orientée objet</a></li>
+                    <li><a href="cours-03.html" title="Introduction à jQuery"><i class="icon-chevron-right"></i>Introduction à jQuery</a></li>
+                </ul>
+                <a id="open-main-nav" href="#main-nav" title="Menu"><i class="icon-list icon-2x"></i>Menu Formation</a>
+                <a id="close-main-nav" href="#main-nav-close" title="Menu"><i class="icon-list icon-2x"></i>Menu Formation</a>
+            </div>
+        </nav>
+
+        <div class="page-center">
+            <h1 class="main-title">Introduction à jQuery</h1>
+            <p>
+                jQuery est une bibliothèque javascript qui permet de réduire les de développement, ayant une syntaxe courte et logique, compatible avec tous les navigateurs courants.
+            </p>
+            <section>
+                <h2 class="section-title"><i class="icon-step">1</i> Le document ready</h2>
+                <div class="div1tab">
+                    <p class="text">
+                        $(document).ready() permet de définir les instructions javascript à exécuter dès que le html et le script qui contient l’appel à $(document).ready() est chargé.<br />
+                        Cette fonction n’attend pas la fin du chargement de tous les éléments de la page (css, images, autres js…)
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">$( document ).ready(function() {
+            // Handler for .ready() called.
+        });</span>
+    </code>
+</pre>
+                    <p class="text">On peut également déclarer le document ready de cette manière :</p>
+<pre class="js">
+    <code>
+        <span class="focus">$(function() {
+            // Handler for .ready() called.
+        });</span>
+    </code>
+</pre>
+                    <p class="text">
+                        Si on utilise plusieurs bibliothèques javascript sur la même page, le raccourci $ est souvent utiliser par ces bibliothèques.<br />
+                        il peut être nécessaire de créer un allias de jQuery dans la fonction document ready.<br />
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">jQuery(document).ready(function( $ ) {
+            // Code using $ as usual goes here.
+        });</span>
+    </code>
+</pre>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">2</i> Le document load</h2>
+                <div class="div1tab">
+                    <p class="text">
+                        $(document).load() permet de définir les instructions javascript à exécuter dès que tous les éléments de la page sont chargés : html, css, javascript, images.
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">$(window).load(function() {
+            // Run code
+        });</span>
+    </code>
+</pre>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">3</i> Les sélecteurs</h2>
+                <div class="div1tab">
+                    <p class="text">
+                        jQuery permet de sélectionner les éléments du DOM. Il permet la sélection d'élément via leur balise, ID, classe...
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">$('.classe');</span> // sélectionne les éléments dont la classe est "classe"
+        <span class="focus">$('#id');</span> // sélectionne l'élément dont l'id est "id"
+        <span class="focus">$('a');</span> // sélectionne tous les liens
+        <span class="focus">$('a.classe');</span> // sélectionne tous les liens qui ont la classe "classe"
+    </code>
+</pre>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title"><i class="icon-step">4</i> Les principales fonctions</h2>
+                <div class="div1tab">
+                    <p class="text">
+                        jQuery permet aussi la manipulation du DOM avec des fonctions simples.
+                    </p>
+<pre class="js">
+    <code>
+        <span class="focus">$('a').addClass('classe')</span> // ajoute la classe "classe" à tous les liens
+        <span class="focus">$('a').removeClass('classe')</span> // retire la classe "classe" à tous les liens
+        <span class="focus">$('a').toggleClass('classe')</span> // retire/ajoute la classe "classe" à tous les liens
+        <span class="focus">$('#monBloc').hide()</span> // masque le bloc 'monBloc"
+        <span class="focus">$('#monBloc').show()</span> // affiche le bloc 'monBloc"
+        <span class="focus">$('#monBloc').css('background',red)</span> // modifie le style en ligne de "monBloc"
+        <span class="focus">$('#monBloc').remove()</span> // supprime "monBloc" du DOM
+        <span class="focus">$('#monBloc').html()</span> // recupère le contenu HTML de "monBloc", avec du code HTML en paramètre, il modifie le code HTML du bloc
+        <span class="focus">$('#monBloc').texte()</span> // recupère le contenu texte de "monBloc", avec du texte en paramètre, il modifie le texte du bloc
+        <span class="focus">$('#monBloc').attr()</span> // permet de modifier/recupérer des attributs de "monBloc"
+        <span class="focus">$('#monBloc').removeAttr()</span> // permet de supprimer un attribut de "monBloc"
+        <span class="focus">$('#monBloc').parent()</span> // retourne l'élément parent de "monBloc"
+        <span class="focus">$('#monBloc').closest('div')</span> // retourne le premier parent de "monBloc" de type "div"
+        <span class="focus">$('#monBloc').children()</span> // retourne les enfants de "monBloc"
+        <span class="focus">$('#monBloc').fadeIn()</span> // mets "monBloc" en "display:block", avec un timer en paramètres, il ajoute un effet sur l'opacité
+        <span class="focus">$('#monBloc').fadeOut()</span> // mets "monBloc" en "display:none", avec un timer en paramètres, il ajoute un effet sur l'opacité
+    </code>
+</pre>
+                </div>
+            </section>
+        </div>
+    </section>
+    <div id="overlay"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="medias/js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="medias/js/plugins.js"></script>
+    <script src="medias/js/functions.js"></script>
+</section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Javascript maintained by <a href="https://github.com/AlexisBranlant">AlexisBranlant</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </footer>
+</div>
+
+
+
+</body>
+</html>
