@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Javascript : Developpement FrontEnd / Formation JavaScript" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="medias/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" media="screen" href="medias/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="medias/css/global.css">
+
+    <title>Developpement Front-End / Formation JavaScript - Introduction à jQuery</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/AlexisBranlant/JavaScript">View on GitHub</a>
+
+        <h1 id="project_title">Developpement Web Front-End</h1>
+        <h2 id="project_tagline">Formation JavaScript - Introduction à jQuery</h2>
+
+        <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/AlexisBranlant/JavaScript/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/AlexisBranlant/JavaScript/tarball/master">Download this project as a tar.gz file</a>
+        </section>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+<section id="main_content" class="inner">
+    <section id="main">
+        <nav id="main-nav-close">
+            <div id="main-nav">
+                <ul class="list">
+                    <li><a href="index.html" title="Accueil formation"><i class="icon-chevron-right"></i>Accueil formation</a></li>
+                    <li><a href="cours-01.html" title="Introduction au JavaScript"><i class="icon-chevron-right"></i>Introduction au JavaScript</a></li>
+                    <li><a href="cours-02.html" title="Vers la programmation orientée objet"><i class="icon-chevron-right"></i>Vers la programmation orientée objet</a></li>
+                    <li><a href="cours-03.html" title="Introduction à jQuery"><i class="icon-chevron-right"></i>Introduction à jQuery</a></li>
+                    <li><a href="cours-04.html" title="Les requêtes AJAX"><i class="icon-chevron-right"></i>Les requêtes AJAX</a></li>
+                </ul>
+                <a id="open-main-nav" href="#main-nav" title="Menu"><i class="icon-list icon-2x"></i>Menu Formation</a>
+                <a id="close-main-nav" href="#main-nav-close" title="Menu"><i class="icon-list icon-2x"></i>Menu Formation</a>
+            </div>
+        </nav>
+
+        <div class="page-center">
+            <h1 class="main-title">Les requêtes Ajax avec et sans jQuery</h1>
+            <section>
+                <h2 class="section-title"><i class="icon-step">1</i> Créer une requête ajax en javascript natif</h2>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">a</i> Instancier un objet XHR</h3>
+                    <p class="text">Pour instancier (créer, déclarer) un objet XHR, on procède de la même façon que pour n'importe quel objet JavaScript à savoir avec le mot-clé new :</p>
+<pre class="js">
+    <code>
+    <span class="focus">var xhr = new XMLHttpRequest();</span>
+    </code>
+</pre>
+                    <p class="text">Les versions d'Internet Explorer inférieures à la version 7 requièrent toujours une instanciation via un contrôle ActiveX. Il y a deux façons d'instancier un objet XHR avec un contrôle ActiveX et elles dépendent de la version d'XMLHTTP utilisée. Pour faire simple, on va utiliser un try...catch , l'instanciation indiquée dans le try étant la plus récente :</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    try {
+        var xhr = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch(e)  {
+        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    </span>
+    </code>
+</pre>
+                    <p class="text">Pour faire un script homogène, rassemblons ce code en un seul, en prenant soin de tester la prise en charge des différentes méthodes d'instanciation :</p>
+<pre class="js">
+    <code>
+    var xhr = null;
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        if (window.ActiveXObject) {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch(e) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        } else {
+            xhr = new XMLHttpRequest();
+        }
+    } else {
+        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+        return;
+    }
+    </code>
+</pre>
+                    <p class="text">Si par la suite nous devons créer plusieurs requêtes ajax, il est intéressant de créer une fonction qui retournera l'objet XMLHttpRequest instancié</p>
+<pre class="js">
+    <code>
+    function getXMLHttpRequest() {
+        var xhr = null;
+
+        if (window.XMLHttpRequest || window.ActiveXObject) {
+            if (window.ActiveXObject) {
+                try {
+                    xhr = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch(e) {
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            } else {
+                xhr = new XMLHttpRequest();
+            }
+        } else {
+            alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+            return null;
+        }
+
+        return xhr;
+    }
+    </code>
+</pre>
+                    <p class="text">Pour instancier un objet XHR, il suffira de faire :</p>
+<pre class="js">
+    <code>
+    <span class="focus">var xhr = getXMLHttpRequest();</span>
+    </code>
+</pre>
+                </div>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">b</i> Envoi d'une requête HTTP</h3>
+                    <p class="text">Dans un premier temps, il faut définir les modalités d'envoi avec la méthode open , et on l'enverra ensuite avec la méthode send :</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    xhr.open("GET", "handlingData.php", true);
+    xhr.send(null);
+    </span>
+    </code>
+</pre>
+                    <div class="div1tab1">
+                        <p class="title-tab"><i class="icon-info"></i>open s'utilise de cette façon : open(sMethod, sUrl, bAsync)</p>
+                        <ul class="param">
+                            <li><i class="icon-angle-right"></i>sMethod : la méthode de transfert : GET ou POST;</li>
+                            <li><i class="icon-angle-right"></i>sUrl : la page qui donnera suite à la requête. Ça peut être une page dynamique (PHP, CFM, ASP) ou une page statique (TXT, XML...);</li>
+                            <li><i class="icon-angle-right"></i>bAsync : définit si le mode de transfert est asynchrone ou non (synchrone). Dans ce cas, mettez true . Ce paramètre est optionnel et vaut true par défaut, mais il est courant de le définir quand même.</li>
+                        </ul>
+                    </div>
+                    <p class="text">Si vous utilisez la méthode POST, vous devez absolument changer le type MIME de la requête avec la méthode setRequestHeader , sinon le serveur ignorera la requête :</p>
+<pre class="js">
+    <code>
+    <span class="focus">xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");</span>
+    </code>
+</pre>
+                    <p class="warning"><i class="icon-exclamation-sign icon-2x"></i>Cette dernière ligne doit être placée après la ligne contenant la méthode open !</p>
+                    <div class="info">
+                        <p class="title-tab"><i class="icon-info"></i>Passer des variables</p>
+                        <ul>
+                            <li>
+                                <p><i class="icon-long-arrow-right"></i> Avec la méthode GET</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    xhr.open("GET", "handlingData.php?variable1=truc&variable2=bidule", true);
+    xhr.send(null);
+    </span>
+    </code>
+</pre>
+                            </li>
+                            <li>
+                                <p><i class="icon-long-arrow-right"></i> Avec la méthode POST</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    xhr.open("POST", "handlingData.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("variable1=truc&variable2=bidule");
+    </span>
+    </code>
+</pre>
+                            </li>
+                        </ul>
+                        <p class="title-tab"><i class="icon-info"></i>Protéger les caractères</p>
+                        <p><i class="icon-long-arrow-right"></i> Avant de passer des variables, il est important de les protéger pour conserver les caractères spéciaux et les espaces. Pour cela, utilisez la fonction globale encodeURIComponent , comme ceci :</p>
+<pre class="js">
+    <code>
+    <span class="focus">
+    var sVar1 = encodeURIComponent("contenu avec des espaces");
+    var sVar2 = encodeURIComponent("je vois que vous êtes un bon élève... oopa !");
+    </span>
+    xhr.open("GET", "handlingData.php?variable1=" + sVar1 + "&variable2= " + sVar2, true);
+    xhr.send(null);
+    </code>
+</pre>
+                    </div>
+                </div>
+                <div class="div1tab">
+                    <h3 class="under-section-title"><i class="icon-step-letter">c</i> Récupération des données</h3>
+                    <div class="info">
+                        <p class="title-tab"><i class="icon-info"></i>Le changement d'état</p>
+                        <p class="text">Il faut savoir que quand on envoie une requête HTTP via XMLHttpRequest, celle-ci passe par plusieurs états différents :</p>
+                        <ol class="text list">
+                            <li><i class="icon-long-arrow-right"></i>0 : L'objet XHR a été créé, mais pas encore initialisé (la méthode open n'a pas encore été appelée)</li>
+                            <li><i class="icon-long-arrow-right"></i>1 : L'objet XHR a été créé, mais pas encore envoyé (avec la méthode send )</li>
+                            <li><i class="icon-long-arrow-right"></i>2 : La méthode send vient d'être appelée</li>
+                            <li><i class="icon-long-arrow-right"></i>3 : Le serveur traite les informations et a commencé à renvoyer des données</li>
+                            <li><i class="icon-long-arrow-right"></i>4 : Le serveur a fini son travail, et toutes les données sont réceptionnées</li>
+                        </ol>
+                    </div>
+                    <p class="text">En vue de cela, il va donc nous falloir détecter les changements d'état pour savoir où en est la requête. Pour cela, on va utiliser la propriété onreadystatechange, et à chaque changement d'état (state en anglais), on regardera lequel il s'agit :</p>
+<pre class="js">
+    <code>
+    var xhr = getXMLHttpRequest();
+    <span class="focus">
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            alert("OK"); // C'est bon \o/
+        }
+    };
+    </span>
+    xhr.open("GET", "handlingData.php", true);
+    xhr.send(null);
+    </code>
+</pre>
+                    <p class="text">On utilise readyState pour connaître l'état de la requête. En addition, nous devons aussi vérifier le code d'état (comme le fameux code 404 pour les pages non trouvées ou le code 500 pour l'erreur de serveur) de la requête, pour vérifier si tout s'est bien passé. Pour cela, on utilise la propriété status. Si elle vaut 200 ou 0 (aucune réponse, pratique pour les tests en local, sans serveur d'évaluation), tout est OK.</p>
+                    <div class="info">
+                        <p class="title-tab"><i class="icon-info"></i>Récupérer les données</p>
+                        <ol class="text list">
+                            <li><i class="icon-long-arrow-right"></i>responseText : pour récupérer les données sous forme de texte brut</li>
+                            <li><i class="icon-long-arrow-right"></i>responseXML : pour récupérer les données sous forme d'arbre XML</li>
+                        </ol>
+                    </div>
+<pre class="js">
+    <code>
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            <span class="focus">alert(xhr.responseText);</span> // Données textuelles récupérées
+        }
+    };
+    </code>
+</pre>
+                    <p class="text">Pour terminer, il reste à traiter les données reçues dans la réponse. Ce traitement peut-être exécuté directement dans la fonction onreadystatechange, même si l'idéal reste de créer une fonctionn de callback, qui sera dédiée au traitement des données.</p>
+                    <div class="info">
+                        <p class="title-tab"><i class="icon-info"></i>Le callback</p>
+<pre class="js">
+    <code>
+    function request(callback) {
+        var xhr = getXMLHttpRequest();
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                <span class="focus">callback(xhr.responseText);</span>
+            }
+        };
+
+        xhr.open("GET", "handlingData.php", true);
+        xhr.send(null);
+    }
+    <span class="focus">
+    function readData(sData) {
+        // On peut maintenant traiter les données sans encombrer l'objet XHR.
+        if (sData == "OK") {
+            alert("C'est bon");
+        } else {
+            alert("Y'a eu un problème");
+        }
+    }
+    </span>
+    request(<span class="focus">readData</span>);
+    </code>
+</pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <div id="overlay"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="medias/js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="medias/js/plugins.js"></script>
+    <script src="medias/js/functions.js"></script>
+</section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Javascript maintained by <a href="https://github.com/AlexisBranlant">AlexisBranlant</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </footer>
+</div>
+
+
+
+</body>
+</html>
