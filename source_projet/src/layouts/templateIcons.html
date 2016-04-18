@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<title>Icones Listes</title>
+		
+		<style>
+			@font-face {
+				font-family: "<%= fontName %>";
+				src: url('<%= exempleFontPath %><%= fontName %>.eot');
+				src: url('<%= exempleFontPath %><%= fontName %>.eot?#iefix') format('eot'),
+					url('<%= exempleFontPath %><%= fontName %>.woff2') format('woff2'),
+					url('<%= exempleFontPath %><%= fontName %>.woff') format('woff'),
+					url('<%= exempleFontPath %><%= fontName %>.ttf') format('truetype'),
+					url('<%= exempleFontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+			}
+
+			.icon:before {
+				font-family: "<%= fontName %>";
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+				text-decoration: none;
+				text-transform: none;
+			}
+
+			<% _.each(glyphs, function(codepoint) { %>
+			.icon-<%= codepoint.name %>:before {
+				content: "\<%= codepoint.codepoint.toString(16).toUpperCase() %>";
+			}
+			<% }); %>
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<% _.each(glyphs, function(codepoint) { %>
+			<i class="icon icon-<%= codepoint.name %>"></i>
+		<% }); %>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

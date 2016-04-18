@@ -1,0 +1,30 @@
+{
+  "name": "31032106",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.4",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-flatten": "^0.2.0",
+    "gulp-iconfont": "^6.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-twig": "^0.5.0",
+    "gulp-uglify": "^1.5.3",
+    "lodash": "^4.7.0",
+    "path": "^0.12.7",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery": "^2.2.2"
+  }
+}

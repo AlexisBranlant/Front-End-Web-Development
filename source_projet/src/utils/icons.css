@@ -1,0 +1,43 @@
+@font-face {
+	font-family: "icons";
+	src: url('../medias/fonts/icons.eot');
+	src: url('../medias/fonts/icons.eot?#iefix') format('eot'),
+		url('../medias/fonts/icons.woff2') format('woff2'),
+		url('../medias/fonts/icons.woff') format('woff'),
+		url('../medias/fonts/icons.ttf') format('truetype'),
+		url('../medias/fonts/icons.svg#icons') format('svg');
+}
+
+.icon:before {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.icon-food:before {
+	content: "\EA01";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

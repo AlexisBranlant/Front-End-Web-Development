@@ -1,0 +1,9 @@
+@import "../../utils/variables";
+@import "../../utils/mixins";
+
+@import "../../components/menu/menu";
+
+body{
+	font-size:40px;
+	font-family : $baseFont;
+}

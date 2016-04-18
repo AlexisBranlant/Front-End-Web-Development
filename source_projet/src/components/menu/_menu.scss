@@ -1,0 +1,25 @@
+.menu{
+	color:$bgRed;
+}
+	.menu-Item{
+		color:red;
+	}
+		.menu-Link{
+			color:red;
+			@include rotate(-60deg);
+		}
+		.menu-Item--open .menu-Link{
+			color:green;
+		}
+		.ssMenu{
+			color:blue;
+		}
+		.menu-SsMenu{
+			color:blue;
+		}/* ssMenu--menu1 */
+			.ssMenu-Item{
+				color:blue;
+			}
+				.ssMenu-Link{
+					color:blue;
+				}
